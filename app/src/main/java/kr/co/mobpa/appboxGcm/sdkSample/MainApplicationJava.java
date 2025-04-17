@@ -26,7 +26,7 @@ public class MainApplicationJava extends Application {
                 new AppBoxGcmFunctionResult() {
                     @Override
                     public void onResult(boolean success, @NonNull String message) {
-                        Log.d("AppBoxGcmKotlin", "message : " + message);
+                        Log.d("AppBoxGcmJava", "message : " + message);
                     }
                 }
         );
@@ -38,7 +38,7 @@ public class MainApplicationJava extends Application {
         AppBoxGcm.getInstance().setNotificationResult(new AppBoxGcmNotificationResult() {
             @Override
             public void onClick(@NonNull String param) {
-                Log.d("AppBoxGcmKotlin", "param : " + param);
+                Log.d("AppBoxGcmJava", "param : " + param);
             }
         });
         // --------------------------------------------------------------

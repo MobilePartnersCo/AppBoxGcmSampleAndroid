@@ -18,7 +18,7 @@ public class MainActivityJava extends AppCompatActivity {
         // --------------------------------------------------------------
         // AppBoxGcm Token 가져오기
         // --------------------------------------------------------------
-        Log.d("AppBoxGcmKotlin", "getPushToken : " + AppBoxGcm.getInstance().getPushToken());
+        Log.d("AppBoxGcmJava", "getPushToken : " + AppBoxGcm.getInstance().getPushToken());
         // --------------------------------------------------------------
 
         // --------------------------------------------------------------
