@@ -4,8 +4,8 @@
 [![Custom Badge](https://img.shields.io/badge/JitPack-1.0.0-green.svg)](https://jitpack.io)
 [![API](https://img.shields.io/badge/API-28%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=28)
 
-- AppBox 푸시알림 SDK는 모바일 웹사이트를 앱으로 패키징하여 최소한의 개발로 푸시알림 기능을 사용할 수 있는 솔루션입니다.
-- AppBox 푸시알림 SDK는 앱박스 홈페이지의 [푸시 전용 콘솔](https://appboxapp.com/console/launchpad)을 활용하여 푸시알림 서비스를 사용할 수 있습니다.
+- AppBoxGcm SDK는 푸시를 간편하게 연동하는 솔루션입니다.
+- AppBoxGcm 푸시알림 SDK는 앱박스 홈페이지의 [푸시 전용 콘솔](https://appboxapp.com/console/launchpad)을 활용하여 푸시알림 서비스를 사용할 수 있습니다.
 - 푸시 전용 콘솔을 이용하여 테스트 발송, 예약 발송 등 다양한 푸시 기능을 사용하실 수 있습니다.
 
 
@@ -19,19 +19,15 @@
 
 ---
 
-## 개발자 메뉴얼
-
-- **메뉴얼**: [https://www.appboxapp.com/guide/dev](https://www.appboxapp.com/guide/dev)
-
----
-
 ## 전체 기능
 
-- 브라우저의 기본기능
-- 생체 인증, 탭 메뉴, 브라우저 메뉴, 햄버거 메뉴, 진동 울리기, 로딩 아이콘, 토스트 메시지, 인트로 실행하기
-- 플로팅 메뉴, 로컬 푸시, 앱 평가, 달력 실행, 팝업 실행하기, 이미지 뷰어, 외부 페이지 열기
-- 바코드 리더기 실행하기, QR 팝업 실행하기, 바코드 팝업 실행하기, 업데이트 실행, 다른 앱 실행하기
-- QR 리더기 실행하기, 공유하기, 앱 종료, 위치를 받아옴, 전화걸기, 문자보내기, 걸음수, 푸시 토큰 등록, API 실행하기 다양한 기능을 사용할 수 있습니다.
+### 푸시 콘솔 페이지를 활용하여 사용할 수 있는 기능
+
+- 테스트 및 예약 발송 기능
+- 진동이나 사운드없이 조용한 발송 기능
+- 파라미터 및 URL 이동 기능
+- 푸시 데이터 발송 통계 제공(OS별 성공/실패/오픈률 집계)
+- 푸시 수신 방문율 제공(푸시 오픈 시간 추이 및 발송 시간대별 푸시 오픈률 제공)
 
 ---
 
