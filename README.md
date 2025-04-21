@@ -33,7 +33,7 @@
 
 ## 설치 방법
 
-AppBox SDK는 [JitPack](https://jitpack.io) 저장소를 통해 제공됩니다. 아래 단계를 따라 프로젝트에 SDK를 통합하세요.
+AppBoxGcm SDK는 [JitPack](https://jitpack.io) 저장소를 통해 제공됩니다. 아래 단계를 따라 프로젝트에 SDK를 통합하세요.
 
 ### Gradle 설정
 
@@ -76,7 +76,7 @@ dependencies {
 
 ### 1. SDK 초기화
 
-AppBox SDK를 사용하려면 먼저 초기화를 수행해야 합니다. initSDK 메서드를 호출하여 초기화를 완료하세요.
+AppBoxGcm SDK를 사용하려면 먼저 초기화를 수행해야 합니다. initSDK 메서드를 호출하여 초기화를 완료하세요.
 
 #### 예제 코드:
 
@@ -100,11 +100,7 @@ AppBoxGcm.getInstance().initSDK(
 
 ### 2. 추가 기능 설정
 
-AppBox SDK 실행 전 추가 기능이 설정이 되어야 적용이 됩니다.
-
 #### 푸시 클릭 콜백
-
-푸시 클릭 콜백
 
 ```
 // AppBoxGcm 푸시 클릭 콜백
@@ -117,16 +113,12 @@ AppBox SDK 실행 전 추가 기능이 설정이 되어야 적용이 됩니다.
 
 #### 토큰 가져오기
 
-FCM 토큰 가져오기
-
 ```
 // AppBoxGcm 토큰 가져오기
 AppBoxGcm.getInstance().getPushToken()
 ```
 
 #### 토큰 저장하기
-
-FCM 토큰 저장하기
 
 ```
 // AppBoxGcm 토큰 저장하기
@@ -140,9 +132,7 @@ AppBoxGcm.getInstance().savePushToken(
 )
 ```
 
-#### AppBoxGcm 푸시 체크 & 푸시 생성
-
-푸시 체크 & 푸시 생성
+#### 푸시 체크 & 푸시 생성
 
 ```
 // AppBoxGcm 푸시 체크 & 푸시 생성
