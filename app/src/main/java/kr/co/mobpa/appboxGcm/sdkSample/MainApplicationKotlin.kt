@@ -3,7 +3,6 @@ package kr.co.mobpa.appboxGcm.sdkSample
 import android.app.Application
 import android.util.Log
 import kr.co.mobpa.appBoxGcmSDK.AppBoxGcm
-import kr.co.mobpa.appBoxGcmSDK.component.processor.AppBoxGcmFunctionResult
 import kr.co.mobpa.appBoxGcmSDK.component.processor.AppBoxGcmNotificationResult
 
 class MainApplicationKotlin : Application() {
@@ -18,12 +17,7 @@ class MainApplicationKotlin : Application() {
             projectId = "PROJECT_ID",
             isAutoTokenSave = true,
             debugMode = true,
-            pushIcon = R.drawable.ic_launcher_background,
-            callback = object : AppBoxGcmFunctionResult {
-                override fun onResult(success: Boolean, message: String) {
-                    Log.d("AppBoxGcmKotlin", "message : ${message}")
-                }
-            }
+            pushIcon = R.drawable.ic_launcher_background
         )
         // --------------------------------------------------------------
 

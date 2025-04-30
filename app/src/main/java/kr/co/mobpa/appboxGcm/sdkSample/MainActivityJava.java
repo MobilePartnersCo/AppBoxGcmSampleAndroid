@@ -3,11 +3,9 @@ package kr.co.mobpa.appboxGcm.sdkSample;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import kr.co.mobpa.appBoxGcmSDK.AppBoxGcm;
-import kr.co.mobpa.appBoxGcmSDK.component.processor.AppBoxGcmFunctionResult;
 
 public class MainActivityJava extends AppCompatActivity {
     @Override
@@ -25,13 +23,7 @@ public class MainActivityJava extends AppCompatActivity {
         // AppBoxGcm Token 저장
         // --------------------------------------------------------------
         AppBoxGcm.getInstance().savePushToken(
-                true,
-                new AppBoxGcmFunctionResult() {
-                    @Override
-                    public void onResult(boolean success, @NonNull String message) {
-                        Log.d("AppBoxGcmJava", "message : " + message);
-                    }
-                }
+                true
         );
         // --------------------------------------------------------------
 

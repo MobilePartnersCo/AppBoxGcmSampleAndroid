@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import kr.co.mobpa.appBoxGcmSDK.AppBoxGcm
-import kr.co.mobpa.appBoxGcmSDK.component.processor.AppBoxGcmFunctionResult
 
 class MainActivityKotlin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,12 +20,7 @@ class MainActivityKotlin : AppCompatActivity() {
         // AppBoxGcm Token 저장
         // --------------------------------------------------------------
         AppBoxGcm.getInstance().savePushToken(
-            pushYn = true,
-            callback = object : AppBoxGcmFunctionResult {
-                override fun onResult(success: Boolean, message: String) {
-                    Log.d("AppBoxGcmKotlin", "message : ${message}")
-                }
-            }
+            pushYn = true
         )
         // --------------------------------------------------------------
 
