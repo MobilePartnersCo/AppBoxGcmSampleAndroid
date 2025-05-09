@@ -85,14 +85,8 @@ AppBoxGcm SDK를 사용하려면 먼저 초기화를 수행해야 합니다. ini
 AppBoxGcm.getInstance().initSDK(
    context = this,
    projectId = "PROJECT_ID",
-   isAutoTokenSave = true,
    debugMode = false,
-   pushIcon = R.drawable.ic_launcher_background,
-   callback = object : AppBoxGcmFunctionResult {
-       override fun onResult(success: Boolean, message: String) {
-           
-       }
-   }
+   pushIcon = R.drawable.ic_launcher_background
 )
 ```
 
@@ -118,15 +112,38 @@ AppBoxGcm.getInstance().initSDK(
 AppBoxGcm.getInstance().getPushToken()
 ```
 
-#### 토큰 저장하기
+#### 토큰 저장하기(수동 입력)
+
+```
+// AppBoxGcm 토큰 저장하기
+AppBoxGcm.getInstance().savePushToken(
+   token: String,
+   pushYn = true,
+   callback = object : AppBoxGcmTokenResult {
+       override fun onSuccess(token: String?) {
+           
+       }
+       
+       override fun onFailure(error: String?) {
+           
+       }
+   }
+)
+```
+
+#### 토큰 저장하기(자동 생성 및 입력)
 
 ```
 // AppBoxGcm 토큰 저장하기
 AppBoxGcm.getInstance().savePushToken(
    pushYn = true,
-   callback = object : AppBoxGcmFunctionResult {
-       override fun onResult(success: Boolean, message: String) {
-           Log.d("AppBoxGcmKotlin", "message : ${message}")
+   callback = object : AppBoxGcmTokenResult {
+       override fun onSuccess(token: String?) {
+           
+       }
+       
+       override fun onFailure(error: String?) {
+           
        }
    }
 )
@@ -138,8 +155,7 @@ AppBoxGcm.getInstance().savePushToken(
 // AppBoxGcm 푸시 체크 & 푸시 생성
 AppBoxGcm.getInstance().isAppBoxPush(
    context = this@MainActivityKotlin,
-   remoteMessage = null,
-   isNotificationCreate = false
+   remoteMessage = null
 )
 ```
 
