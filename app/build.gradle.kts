@@ -52,6 +52,6 @@ dependencies {
     // --------------------------------------------------------------
     // implementation 선언
     // --------------------------------------------------------------
-    implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.2")
+    implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.0")
     // --------------------------------------------------------------
 }
