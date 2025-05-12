@@ -20,7 +20,6 @@ public class MainApplicationJava extends Application {
                 this,
                 "PROJECT_ID",
                 true,
-                true,
                 R.drawable.ic_launcher_background
         );
         // --------------------------------------------------------------

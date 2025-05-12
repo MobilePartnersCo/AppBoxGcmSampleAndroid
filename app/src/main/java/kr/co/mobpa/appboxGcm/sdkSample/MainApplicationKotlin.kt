@@ -15,7 +15,6 @@ class MainApplicationKotlin : Application() {
         AppBoxGcm.getInstance().initSDK(
             context = this,
             projectId = "PROJECT_ID",
-            isAutoTokenSave = true,
             debugMode = true,
             pushIcon = R.drawable.ic_launcher_background
         )

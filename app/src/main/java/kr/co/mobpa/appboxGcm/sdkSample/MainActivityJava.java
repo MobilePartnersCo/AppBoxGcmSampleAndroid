@@ -3,9 +3,11 @@ package kr.co.mobpa.appboxGcm.sdkSample;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import kr.co.mobpa.appBoxGcmSDK.AppBoxGcm;
+import kr.co.mobpa.appBoxGcmSDK.component.processor.AppBoxGcmTokenResult;
 
 public class MainActivityJava extends AppCompatActivity {
     @Override
@@ -20,11 +22,48 @@ public class MainActivityJava extends AppCompatActivity {
         // --------------------------------------------------------------
 
         // --------------------------------------------------------------
-        // AppBoxGcm Token 저장
+        // AppBoxGcm Token 저장(수동)
         // --------------------------------------------------------------
         AppBoxGcm.getInstance().savePushToken(
-                true
+                "token",
+                true,
+                new AppBoxGcmTokenResult() {
+                    @Override
+                    public void onSuccess(@Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onFailure(@Nullable String s) {
+
+                    }
+                }
         );
+        // --------------------------------------------------------------
+
+        // --------------------------------------------------------------
+        // AppBoxGcm Token 저장(자동)
+        // --------------------------------------------------------------
+        AppBoxGcm.getInstance().savePushToken(
+                true,
+                new AppBoxGcmTokenResult() {
+                    @Override
+                    public void onSuccess(@Nullable String s) {
+
+                    }
+
+                    @Override
+                    public void onFailure(@Nullable String s) {
+
+                    }
+                }
+        );
+        // --------------------------------------------------------------
+
+        // --------------------------------------------------------------
+        // AppBoxGcm Token 가져오기
+        // --------------------------------------------------------------
+        AppBoxGcm.getInstance().getPushToken();
         // --------------------------------------------------------------
 
         // --------------------------------------------------------------
@@ -32,8 +71,7 @@ public class MainActivityJava extends AppCompatActivity {
         // --------------------------------------------------------------
         AppBoxGcm.getInstance().isAppBoxPush(
                 this,
-                null,
-                false
+                null
         );
         // --------------------------------------------------------------
 

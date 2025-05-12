@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import kr.co.mobpa.appBoxGcmSDK.AppBoxGcm
+import kr.co.mobpa.appBoxGcmSDK.component.processor.AppBoxGcmTokenResult
 
 class MainActivityKotlin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,11 +18,44 @@ class MainActivityKotlin : AppCompatActivity() {
         // --------------------------------------------------------------
 
         // --------------------------------------------------------------
-        // AppBoxGcm Token 저장
+        // AppBoxGcm Token 저장(수동)
         // --------------------------------------------------------------
         AppBoxGcm.getInstance().savePushToken(
-            pushYn = true
+            token = "token",
+            pushYn = true,
+            callback = object : AppBoxGcmTokenResult{
+                override fun onFailure(error: String?) {
+
+                }
+
+                override fun onSuccess(token: String?) {
+
+                }
+            }
         )
+        // --------------------------------------------------------------
+
+        // --------------------------------------------------------------
+        // AppBoxGcm Token 저장(자동)
+        // --------------------------------------------------------------
+        AppBoxGcm.getInstance().savePushToken(
+            pushYn = true,
+            callback = object : AppBoxGcmTokenResult{
+                override fun onFailure(error: String?) {
+
+                }
+
+                override fun onSuccess(token: String?) {
+
+                }
+            }
+        )
+        // --------------------------------------------------------------
+
+        // --------------------------------------------------------------
+        // AppBoxGcm Token 가져오기
+        // --------------------------------------------------------------
+        AppBoxGcm.getInstance().getPushToken()
         // --------------------------------------------------------------
 
         // --------------------------------------------------------------
@@ -29,8 +63,7 @@ class MainActivityKotlin : AppCompatActivity() {
         // --------------------------------------------------------------
         AppBoxGcm.getInstance().isAppBoxPush(
             context = this@MainActivityKotlin,
-            remoteMessage = null,
-            isNotificationCreate = false
+            remoteMessage = null
         )
         // --------------------------------------------------------------
 
