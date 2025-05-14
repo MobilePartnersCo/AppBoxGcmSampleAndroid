@@ -65,7 +65,7 @@ repositories {
 dependencies {
 
     // implementation 선언
-    implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.3")
+    implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.7")
 
 }
 ```
@@ -176,17 +176,22 @@ AppBoxGcm.getInstance().isAppBoxPush(
 
 2. **AndroidManifest 설정**
     - AndroidManifest.xml 파일에 다음 설정을 확인하세요:
-    - INTERNET 권한 추가
     - allowBackup, fullBackupContent 값을 false로 설정
 
 ```
-      <uses-permission android:name="android.permission.INTERNET" />
-
       <application
         android:allowBackup="false"
         android:fullBackupContent="false">
       </application>
 ```
+
+3. **사용중인 라이브러리 목록**
+    - androidx.core:core-ktx:1.13.1
+    - androidx.appcompat:appcompat:1.7.0
+    - com.google.android.material:material:1.12.0
+    - com.google.firebase:firebase-messaging:24.1.1
+    - com.google.android.gms:play-services-ads-identifier:18.2.0
+    - com.google.code.gson:gson:2.13.1
 
 
 ---
