@@ -193,6 +193,13 @@ AppBoxGcm.getInstance().isAppBoxPush(
     - com.google.android.gms:play-services-ads-identifier:18.2.0
     - com.google.code.gson:gson:2.13.1
 
+4. **Proguard 설정**
+   - Proguard 사용시 코드 추가
+
+```
+      -keep class kr.co.mobpa.appBoxGcmSDK.** { *; }
+```
+
 
 ---
 
