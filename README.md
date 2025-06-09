@@ -66,11 +66,6 @@ dependencies {
 
     // implementation 선언
     implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.7")
-    implementation("com.google.firebase:firebase-messaging:24.1.1")
-    implementation("com.google.android.gms:play-services-ads-identifier:18.2.0")
-    implementation("com.google.code.gson:gson:2.13.1")
-    implementation("com.github.bumptech.glide:glide:4.16.0")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 
 }
 ```
