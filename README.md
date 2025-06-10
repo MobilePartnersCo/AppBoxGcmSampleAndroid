@@ -65,7 +65,7 @@ repositories {
 dependencies {
 
     // implementation 선언
-    implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.7")
+    implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.8")
 
 }
 ```
@@ -149,14 +149,19 @@ AppBoxGcm.getInstance().savePushToken(
 )
 ```
 
-#### 푸시 체크 & 푸시 생성
+#### 세그먼트 저장하기
 
 ```
-// AppBoxGcm 푸시 체크 & 푸시 생성
-AppBoxGcm.getInstance().isAppBoxPush(
-   context = this@MainActivityKotlin,
-   remoteMessage = null
-)
+// AppBoxGcm 세그먼트 저장하기
+AppBoxGcm.getInstance().saveSegment(hashMap = hashMapOf(Pair("A", "AA")), callback = object : AppBoxGcmSegmentResult {
+    override fun onFailure(error: String?) {
+
+    }
+
+    override fun onSuccess() {
+
+    }
+})
 ```
 
 ---
