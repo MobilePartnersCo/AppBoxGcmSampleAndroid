@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import kr.co.mobpa.appBoxGcmSDK.AppBoxGcm
+import kr.co.mobpa.appBoxGcmSDK.component.processor.AppBoxGcmSegmentResult
 import kr.co.mobpa.appBoxGcmSDK.component.processor.AppBoxGcmTokenResult
 
 class MainActivityKotlin : AppCompatActivity() {
@@ -23,7 +24,7 @@ class MainActivityKotlin : AppCompatActivity() {
         AppBoxGcm.getInstance().savePushToken(
             token = "token",
             pushYn = true,
-            callback = object : AppBoxGcmTokenResult{
+            callback = object : AppBoxGcmTokenResult {
                 override fun onFailure(error: String?) {
 
                 }
@@ -40,7 +41,7 @@ class MainActivityKotlin : AppCompatActivity() {
         // --------------------------------------------------------------
         AppBoxGcm.getInstance().savePushToken(
             pushYn = true,
-            callback = object : AppBoxGcmTokenResult{
+            callback = object : AppBoxGcmTokenResult {
                 override fun onFailure(error: String?) {
 
                 }
@@ -59,12 +60,22 @@ class MainActivityKotlin : AppCompatActivity() {
         // --------------------------------------------------------------
 
         // --------------------------------------------------------------
-        // AppBoxGcm 앱박스 푸시 체크 & 푸시 생성(파이어베이스 메시지 사용시)
+        // AppBoxGcm 세그먼트 저장
         // --------------------------------------------------------------
-        AppBoxGcm.getInstance().isAppBoxPush(
-            context = this@MainActivityKotlin,
-            remoteMessage = null
-        )
+        val hashMap = hashMapOf<String, String>()
+        hashMap["A"] = "AAAA"
+        hashMap["B"] = "BBBB"
+        hashMap["C"] = "CCCC"
+        AppBoxGcm.getInstance()
+            .saveSegment(hashMap = hashMap, callback = object : AppBoxGcmSegmentResult {
+                override fun onFailure(error: String?) {
+
+                }
+
+                override fun onSuccess() {
+
+                }
+            })
         // --------------------------------------------------------------
 
     }

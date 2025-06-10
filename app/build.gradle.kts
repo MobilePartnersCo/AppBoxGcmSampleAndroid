@@ -46,12 +46,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // 이미 Firebase를 사용중일때
-    implementation("com.google.firebase:firebase-messaging:24.1.1")
-
     // --------------------------------------------------------------
     // implementation 선언
     // --------------------------------------------------------------
-    implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.7")
+    implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.8")
     // --------------------------------------------------------------
 }
