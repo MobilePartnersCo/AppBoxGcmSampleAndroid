@@ -73,9 +73,7 @@ public class MainActivityJava extends AppCompatActivity {
         // AppBoxGcm 세그먼트 저장
         // --------------------------------------------------------------
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("A", "AAAA");
-        hashMap.put("B", "BBBB");
-        hashMap.put("C", "CCCC");
+        hashMap.put("A", "AA");
         AppBoxGcm.getInstance().saveSegment(hashMap, new AppBoxGcmSegmentResult() {
             @Override
             public void onSuccess() {

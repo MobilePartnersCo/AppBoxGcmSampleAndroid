@@ -62,20 +62,18 @@ class MainActivityKotlin : AppCompatActivity() {
         // --------------------------------------------------------------
         // AppBoxGcm 세그먼트 저장
         // --------------------------------------------------------------
-        val hashMap = hashMapOf<String, String>()
-        hashMap["A"] = "AAAA"
-        hashMap["B"] = "BBBB"
-        hashMap["C"] = "CCCC"
         AppBoxGcm.getInstance()
-            .saveSegment(hashMap = hashMap, callback = object : AppBoxGcmSegmentResult {
-                override fun onFailure(error: String?) {
+            .saveSegment(
+                hashMap = hashMapOf(Pair("A", "AA")),
+                callback = object : AppBoxGcmSegmentResult {
+                    override fun onFailure(error: String?) {
 
-                }
+                    }
 
-                override fun onSuccess() {
+                    override fun onSuccess() {
 
-                }
-            })
+                    }
+                })
         // --------------------------------------------------------------
 
     }
