@@ -192,6 +192,7 @@ AppBoxGcm.getInstance().isAppBoxPush(
     - com.google.firebase:firebase-messaging:24.1.1
     - com.google.android.gms:play-services-ads-identifier:18.2.0
     - com.google.code.gson:gson:2.13.1
+    - com.github.bumptech.glide:glide:4.16.0
 
 4. **Proguard 설정**
    - Proguard 사용시 코드 추가
