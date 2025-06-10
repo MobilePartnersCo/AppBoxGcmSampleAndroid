@@ -153,15 +153,18 @@ AppBoxGcm.getInstance().savePushToken(
 
 ```
 // AppBoxGcm 세그먼트 저장하기
-AppBoxGcm.getInstance().saveSegment(hashMap = hashMapOf(Pair("A", "AA")), callback = object : AppBoxGcmSegmentResult {
-    override fun onFailure(error: String?) {
+AppBoxGcm.getInstance()
+    .saveSegment(
+        hashMap = hashMapOf(Pair("A", "AA")),
+        callback = object : AppBoxGcmSegmentResult {
+            override fun onFailure(error: String?) {
 
-    }
+            }
 
-    override fun onSuccess() {
+            override fun onSuccess() {
 
-    }
-})
+            }
+        })
 ```
 
 ---
