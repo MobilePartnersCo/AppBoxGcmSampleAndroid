@@ -184,6 +184,7 @@ AppBoxGcm.getInstance()
 
 2. **AndroidManifest 설정**
     - AndroidManifest.xml 파일에 다음 설정을 확인하세요:
+    - 기존에 사용 중인 FirebaseReceiver가 존재할 시 해당 클래스 선언을 해제해야 합니다.
     - allowBackup, fullBackupContent 값을 false로 설정
 
 ```
@@ -202,7 +203,7 @@ AppBoxGcm.getInstance()
     - com.google.code.gson:gson:2.13.1
     - com.github.bumptech.glide:glide:4.16.0
 
-4. **Proguard 설정**
+ㅋ. **Proguard 설정**
    - Proguard 사용시 코드 추가
 
 ```
