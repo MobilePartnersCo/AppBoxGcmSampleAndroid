@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "kr.co.mobpa.appboxGcm.sdkSample"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "kr.co.mobpa.appboxGcm.sdkSample"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -49,6 +49,6 @@ dependencies {
     // --------------------------------------------------------------
     // implementation 선언
     // --------------------------------------------------------------
-    implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.8")
+    implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.9")
     // --------------------------------------------------------------
 }

@@ -1,13 +1,13 @@
 ![AppBox 데모](images/AppboxVisual.jpg)
 
 # AppBoxGcm SDK 사용 샘플소스
+
 [![Custom Badge](https://img.shields.io/badge/JitPack-1.0.0-green.svg)](https://jitpack.io)
 [![API](https://img.shields.io/badge/API-28%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=28)
 
 - AppBoxGcm SDK는 푸시를 간편하게 연동하는 솔루션입니다.
 - AppBoxGcm 푸시알림 SDK는 앱박스 홈페이지의 [푸시 전용 콘솔](https://appboxapp.com/console/launchpad)을 활용하여 푸시알림 서비스를 사용할 수 있습니다.
 - 푸시 전용 콘솔을 이용하여 테스트 발송, 예약 발송 등 다양한 푸시 기능을 사용하실 수 있습니다.
-
 
 ---
 
@@ -56,7 +56,6 @@ repositories {
 }
 ```
 
-
 #### 2. 앱 수준의 build.gradle 파일에 SDK 의존성 추가
 
 아래 의존성을 추가합니다:
@@ -65,7 +64,7 @@ repositories {
 dependencies {
 
     // implementation 선언
-    implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.8")
+    implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.9")
 
 }
 ```
@@ -119,14 +118,14 @@ AppBoxGcm.getInstance().getPushToken()
 AppBoxGcm.getInstance().savePushToken(
    token: String,
    pushYn = true,
-   callback = object : AppBoxGcmTokenResult {
-       override fun onSuccess(token: String?) {
-           
-       }
-       
-       override fun onFailure(error: String?) {
-           
-       }
+   callback = object : AppBoxGcmResult<String> {
+      override fun onSuccess(result: String) {
+      
+      }
+      
+      override fun onFailure(errorMessage: String) {
+      
+      }
    }
 )
 ```
@@ -137,14 +136,14 @@ AppBoxGcm.getInstance().savePushToken(
 // AppBoxGcm 토큰 저장하기
 AppBoxGcm.getInstance().savePushToken(
    pushYn = true,
-   callback = object : AppBoxGcmTokenResult {
-       override fun onSuccess(token: String?) {
-           
-       }
-       
-       override fun onFailure(error: String?) {
-           
-       }
+   callback = object : AppBoxGcmResult<String> {
+      override fun onSuccess(result: String) {
+      
+      }
+      
+      override fun onFailure(errorMessage: String) {
+      
+      }
    }
 )
 ```
@@ -156,15 +155,33 @@ AppBoxGcm.getInstance().savePushToken(
 AppBoxGcm.getInstance()
     .saveSegment(
         hashMap = hashMapOf(Pair("A", "AA")),
-        callback = object : AppBoxGcmSegmentResult {
-            override fun onFailure(error: String?) {
-
-            }
-
+        callback = object : AppBoxGcmCallback {
             override fun onSuccess() {
-
+            
+            }
+            
+            override fun onFailure(errorMessage: String) {
+            
             }
         })
+```
+
+#### 전환코드 실행
+
+```
+// AppBoxGcm 전환코드 실행
+AppBoxGcm.getInstance()
+   .trackingConversion(
+       conversionCode = "conversionCode",
+       callback = object : AppBoxGcmCallback {
+           override fun onSuccess() {
+   
+           }
+   
+           override fun onFailure(errorMessage: String) {
+   
+           }
+       })
 ```
 
 ---
@@ -203,13 +220,13 @@ AppBoxGcm.getInstance()
     - com.google.code.gson:gson:2.13.1
     - com.github.bumptech.glide:glide:4.16.0
 
-ㅋ. **Proguard 설정**
-   - Proguard 사용시 코드 추가
+4. **Proguard 설정**
+
+- Proguard 사용시 코드 추가
 
 ```
       -keep class kr.co.mobpa.appBoxGcmSDK.** { *; }
 ```
-
 
 ---
 

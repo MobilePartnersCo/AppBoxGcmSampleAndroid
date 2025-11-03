@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import kr.co.mobpa.appBoxGcmSDK.AppBoxGcm
-import kr.co.mobpa.appBoxGcmSDK.component.processor.AppBoxGcmSegmentResult
-import kr.co.mobpa.appBoxGcmSDK.component.processor.AppBoxGcmTokenResult
+import kr.co.mobpa.appBoxGcmSDK.component.processor.AppBoxGcmCallback
+import kr.co.mobpa.appBoxGcmSDK.component.processor.AppBoxGcmResult
 
 class MainActivityKotlin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,12 +24,12 @@ class MainActivityKotlin : AppCompatActivity() {
         AppBoxGcm.getInstance().savePushToken(
             token = "token",
             pushYn = true,
-            callback = object : AppBoxGcmTokenResult {
-                override fun onFailure(error: String?) {
+            callback = object : AppBoxGcmResult<String> {
+                override fun onSuccess(result: String) {
 
                 }
 
-                override fun onSuccess(token: String?) {
+                override fun onFailure(errorMessage: String) {
 
                 }
             }
@@ -41,12 +41,12 @@ class MainActivityKotlin : AppCompatActivity() {
         // --------------------------------------------------------------
         AppBoxGcm.getInstance().savePushToken(
             pushYn = true,
-            callback = object : AppBoxGcmTokenResult {
-                override fun onFailure(error: String?) {
+            callback = object : AppBoxGcmResult<String> {
+                override fun onSuccess(result: String) {
 
                 }
 
-                override fun onSuccess(token: String?) {
+                override fun onFailure(errorMessage: String) {
 
                 }
             }
@@ -64,13 +64,30 @@ class MainActivityKotlin : AppCompatActivity() {
         // --------------------------------------------------------------
         AppBoxGcm.getInstance()
             .saveSegment(
-                hashMap = hashMapOf(Pair("A", "AA")),
-                callback = object : AppBoxGcmSegmentResult {
-                    override fun onFailure(error: String?) {
+                hashMap = hashMapOf(Pair("key", "value")),
+                callback = object : AppBoxGcmCallback {
+                    override fun onSuccess() {
 
                     }
 
+                    override fun onFailure(errorMessage: String) {
+
+                    }
+                })
+        // --------------------------------------------------------------
+
+        // --------------------------------------------------------------
+        // AppBoxGcm 전환코드 저장
+        // --------------------------------------------------------------
+        AppBoxGcm.getInstance()
+            .trackingConversion(
+                conversionCode = "conversionCode",
+                callback = object : AppBoxGcmCallback {
                     override fun onSuccess() {
+
+                    }
+
+                    override fun onFailure(errorMessage: String) {
 
                     }
                 })
