@@ -17,16 +17,15 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven {
-            url = uri("https://jitpack.io")
-
+            url = uri("https://maven.pkg.github.com/MobilePartnersCo/AppBoxGcmSDK")
             // --------------------------------------------------------------
             // SDK 접근 설정
             // --------------------------------------------------------------
             credentials {
-                username = "jp_ku9piga59cvtv8rlos3utncvms"
+                username = providers.gradleProperty("gpr.user").getOrElse("")
+                password = providers.gradleProperty("gpr.key").getOrElse("")
             }
             // --------------------------------------------------------------
-
         }
     }
 }

@@ -19,24 +19,6 @@ class MainActivityKotlin : AppCompatActivity() {
         // --------------------------------------------------------------
 
         // --------------------------------------------------------------
-        // AppBoxGcm Token 저장(수동)
-        // --------------------------------------------------------------
-        AppBoxGcm.getInstance().savePushToken(
-            token = "token",
-            pushYn = true,
-            callback = object : AppBoxGcmResult<String> {
-                override fun onSuccess(result: String) {
-
-                }
-
-                override fun onFailure(errorMessage: String) {
-
-                }
-            }
-        )
-        // --------------------------------------------------------------
-
-        // --------------------------------------------------------------
         // AppBoxGcm Token 저장(자동)
         // --------------------------------------------------------------
         AppBoxGcm.getInstance().savePushToken(

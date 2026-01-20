@@ -45,12 +45,13 @@ AppBoxGcm SDK는 [JitPack](https://jitpack.io) 저장소를 통해 제공됩니�
 repositories {
     google()
     mavenCentral()
+    maven { url = uri("https://jitpack.io") }
     maven {
-        url = uri("https://jitpack.io")
-
+        url = uri("https://maven.pkg.github.com/MobilePartnersCo/AppBoxGcmSDK")
         // SDK 접근 설정
         credentials {
-            username = "jp_ku9piga59cvtv8rlos3utncvms"
+            username = providers.gradleProperty("gpr.user").getOrElse("")
+            password = providers.gradleProperty("gpr.key").getOrElse("")
         }
     }
 }
@@ -64,7 +65,7 @@ repositories {
 dependencies {
 
     // implementation 선언
-    implementation("com.github.MobilePartnersCo:AppBoxSDKPackage:gcm-v1.0.9")
+    implementation("com.appboxapp.sdk:push:1.0.10")
 
 }
 ```
@@ -111,26 +112,7 @@ AppBoxGcm.getInstance().initSDK(
 AppBoxGcm.getInstance().getPushToken()
 ```
 
-#### 토큰 저장하기(수동 입력)
-
-```
-// AppBoxGcm 토큰 저장하기
-AppBoxGcm.getInstance().savePushToken(
-   token: String,
-   pushYn = true,
-   callback = object : AppBoxGcmResult<String> {
-      override fun onSuccess(result: String) {
-      
-      }
-      
-      override fun onFailure(errorMessage: String) {
-      
-      }
-   }
-)
-```
-
-#### 토큰 저장하기(자동 생성 및 입력)
+#### 토큰 저장하기
 
 ```
 // AppBoxGcm 토큰 저장하기

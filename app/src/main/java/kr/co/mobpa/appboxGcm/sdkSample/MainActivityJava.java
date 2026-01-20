@@ -25,26 +25,6 @@ public class MainActivityJava extends AppCompatActivity {
         // --------------------------------------------------------------
 
         // --------------------------------------------------------------
-        // AppBoxGcm Token 저장(수동)
-        // --------------------------------------------------------------
-        AppBoxGcm.getInstance().savePushToken(
-                "token",
-                true,
-                new AppBoxGcmResult<String>() {
-                    @Override
-                    public void onSuccess(@Nullable String s) {
-
-                    }
-
-                    @Override
-                    public void onFailure(@Nullable String s) {
-
-                    }
-                }
-        );
-        // --------------------------------------------------------------
-
-        // --------------------------------------------------------------
         // AppBoxGcm Token 저장(자동)
         // --------------------------------------------------------------
         AppBoxGcm.getInstance().savePushToken(
