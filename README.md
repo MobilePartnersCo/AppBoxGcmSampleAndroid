@@ -42,16 +42,27 @@ AppBoxGcm SDK는 [JitPack](https://jitpack.io) 저장소를 통해 제공됩니�
 프로젝트의 build.gradle 파일에 JitPack 저장소를 추가합니다.
 
 ```
-repositories {
-    google()
-    mavenCentral()
-    maven { url = uri("https://jitpack.io") }
-    maven {
-        url = uri("https://maven.pkg.github.com/MobilePartnersCo/AppBoxGcmSDK")
-        // SDK 접근 설정
-        credentials {
-            username = providers.gradleProperty("gpr.user").getOrElse("")
-            password = providers.gradleProperty("gpr.key").getOrElse("")
+val localProperties = java.util.Properties()
+val localPropertiesFile = File(rootDir, "local.properties")
+
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.inputStream().use { localProperties.load(it) }
+}
+
+val gprUser: String = localProperties.getProperty("gpr.user") ?: ""
+val gprKey: String = localProperties.getProperty("gpr.key") ?: ""
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url = uri("https://maven.pkg.github.com/MobilePartnersCo/AppBoxGcmSDK")
+            credentials {
+                username = gprUser
+                password = gprKey
+            }
         }
     }
 }
@@ -68,6 +79,15 @@ dependencies {
     implementation("com.appboxapp.sdk:push:1.0.10")
 
 }
+```
+
+#### 3. local.properties 파일에 접근정보 추가
+
+가이드에 따라 local.properties 파일에 아래 접근정보를 추가합니다:
+
+```
+gpr.user={user}
+gpr.key={key}
 ```
 
 ---

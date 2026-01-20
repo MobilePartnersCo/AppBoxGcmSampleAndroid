@@ -11,6 +11,17 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
+val localProperties = java.util.Properties()
+val localPropertiesFile = File(rootDir, "local.properties")
+
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.inputStream().use { localProperties.load(it) }
+}
+
+val gprUser: String = localProperties.getProperty("gpr.user") ?: ""
+val gprKey: String = localProperties.getProperty("gpr.key") ?: ""
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -22,10 +33,9 @@ dependencyResolutionManagement {
             // SDK 접근 설정
             // --------------------------------------------------------------
             credentials {
-                username = providers.gradleProperty("gpr.user").getOrElse("")
-                password = providers.gradleProperty("gpr.key").getOrElse("")
+                username = gprUser
+                password = gprKey
             }
-            // --------------------------------------------------------------
         }
     }
 }
